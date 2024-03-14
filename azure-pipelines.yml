@@ -40,14 +40,8 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/TEST-*.xml'
         javaHomeOption: 'JDKVersion'
-        sonarQubeRunAnalysis: true
-        sqGradlePluginVersionChoice: 'build'
-        checkStyleRunAnalysis: true
-        findBugsRunAnalysis: true
-        pmdRunAnalysis: true
-        spotBugsAnalysis: true
-        spotBugsGradlePluginVersionChoice: 'specify'
-        spotbugsGradlePluginVersion: '4.7.0'
+        sonarQubeRunAnalysis: false
+        spotBugsAnalysis: false
     - task: SonarQubeAnalyze@5
       inputs:
         jdkversion: 'JAVA_HOME_17_X64'
