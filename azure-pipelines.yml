@@ -26,13 +26,6 @@ stages:
         scannerMode: 'MSBuild'
         projectKey: '8af2622e630c90624a40eacb051788ace3a509df'
         projectName: 'Projeto Teste'
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/.devcontainer/Dockerfile'
-        tags: |
-          $(tag)
     - task: Gradle@3
       inputs:
         gradleWrapperFile: 'gradlew'
