@@ -27,3 +27,18 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/.devcontainer/Dockerfile'
         tags: |
           $(tag)
+    - task: Gradle@3
+      inputs:
+        gradleWrapperFile: 'gradlew'
+        tasks: 'build'
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        sonarQubeRunAnalysis: true
+        sqGradlePluginVersionChoice: 'build'
+        checkStyleRunAnalysis: true
+        findBugsRunAnalysis: true
+        pmdRunAnalysis: true
+        spotBugsAnalysis: true
+        spotBugsGradlePluginVersionChoice: 'specify'
+        spotbugsGradlePluginVersion: '4.7.0'
